@@ -2,14 +2,14 @@ import "./App.css";
 import MyNav from "./components/MyNav";
 import MyFooter from "./components/MyFooter";
 import Welcome from "./components/Welcome";
-import AllTheCeppaia from "./components/AllTheCeppaia";
+import AllTheBooks from "./components/AllTheBooks";
 
 function App() {
   return (
     <div>
       <MyNav />
       <Welcome />
-      <AllTheCeppaia />
+      <AllTheBooks />
       <MyFooter />
     </div>
   );
