@@ -1,11 +1,17 @@
 import { Container, Row, Col, Form } from "react-bootstrap";
-import { useState, useEffect } from "react";
+import {  useEffect } from "react";
 import booksData from "../data/books.json";
 import SingleBook from "../components/SingleBook";
 import { v4 as uuidv4 } from "uuid";
 
-const AllTheBooks = () => {
-  const [searchQuery, setSearchQuery] = useState("");
+const AllTheBooks = ({ searchQuery }) => {
+  /*
+  const [searchQuery, setSearchQuery] = useState(""); --rimosso per spostare la funzione di barra di ricerca all'interno della nav bar//
+  */
+
+  // nuova costante che passa le props presenti in?...
+
+
 
   // Uniamo tutti i libri in un array, aggiungendo category e un id univoco
   const allBooks = [
@@ -31,6 +37,9 @@ const AllTheBooks = () => {
     })),
   ];
 
+
+
+
   // Controllo duplicati per sicurezza
   useEffect(() => {
     const duplicates = allBooks.filter(
@@ -51,14 +60,6 @@ const AllTheBooks = () => {
 
   return (
     <Container className="mt-4">
-      <Form.Control
-        type="text"
-        placeholder="Browse all of our books ..."
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
-        className="mb-4"
-      />
-
       <Row>
         {filteredBooks.map((book) => (
           <Col key={book.id} md={3}>
