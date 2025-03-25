@@ -1,9 +1,12 @@
 import { Card } from "react-bootstrap";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import CommentArea from "../components/CommentArea";
+import ThemeContext from "../ThemeContext";
 
 const SingleBook = ({ book }) => {
     const [selected, setSelected] = useState(false)
+
+    const { theme } = useContext(ThemeContext);
 
     const handleClick = () => {
         setSelected(!selected);
@@ -12,7 +15,7 @@ const SingleBook = ({ book }) => {
     return (
         <>
             <Card
-                className={`mb-4 shadow-sm ${selected ? "border border-danger border-3" : ""}`}
+                className={`mb-4 shadow-sm ${selected ? "border border-danger border-3" : ""} , ${theme === "dark" ? "bg-dark text-light" : "bg-light text-dark"} `}
                 style={{ cursor: "pointer " }}
                 onClick={handleClick}
             >

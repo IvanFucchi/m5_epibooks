@@ -31,10 +31,10 @@ const MyNav = ({ searchQuery, setSearchQuery}) => {
                     </Form>
                     <Button 
                     variant="outline-light"
-                    className="ms-2"
+                    className="ms-auto rounded-pill "
                     onClick={() => setTheme(theme === "light" ? "dark" : "light")}
                     >
-                      Change Theme (ora: {theme})   
+                      Change Theme    
                     </Button>
                 </Navbar.Collapse>
             </Container>
