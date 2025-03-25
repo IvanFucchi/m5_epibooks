@@ -1,9 +1,17 @@
-import { Navbar, Container, Nav, Form } from "react-bootstrap";
+import { Navbar, Container, Nav, Form, Button } from "react-bootstrap";
 import PropTypes from 'prop-types';
+import { useContext } from "react";
+import ThemeContext from "../ThemeContext";
+
+
 
 const MyNav = ({ searchQuery, setSearchQuery}) => {
+
+    const { theme, setTheme } = useContext(ThemeContext);
+    console.log("Tema attivo nella navbar:", theme);
+
     return (
-        <Navbar bg="dark" variant="dark" expand="lg">
+        <Navbar bg={theme === "light" ? "light" : "dark"} variant={theme === "light" ? "light" : "dark"} expand="lg">
             <Container fluid>
                 <Navbar.Brand href="#">Epibooks</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -21,6 +29,13 @@ const MyNav = ({ searchQuery, setSearchQuery}) => {
                             onChange={(e) => setSearchQuery(e.target.value)}
                         />
                     </Form>
+                    <Button 
+                    variant="outline-light"
+                    className="ms-2"
+                    onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+                    >
+                      Change Theme (ora: {theme})   
+                    </Button>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
