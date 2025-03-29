@@ -6,6 +6,8 @@ import AllTheBooks from "./components/AllTheBooks";
 import { useState } from "react";
 import ThemeContext from "./ThemeContext";
 import "./themeStyles.css"
+import "bootstrap-icons/font/bootstrap-icons.css";
+
 
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
