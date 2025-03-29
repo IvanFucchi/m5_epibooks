@@ -1,5 +1,5 @@
 import { Container, Row, Col, Form } from "react-bootstrap";
-import {  useEffect } from "react";
+import { useEffect } from "react";
 import booksData from "../data/books.json";
 import SingleBook from "../components/SingleBook";
 import { v4 as uuidv4 } from "uuid";
@@ -7,7 +7,7 @@ import { useContext } from "react";
 import ThemeContext from "../ThemeContext";
 
 
-const AllTheBooks = ({ searchQuery }) => {
+const AllTheBooks = ({ searchQuery, selectedAsin, setSelectedAsin }) => {
 
   const { theme } = useContext(ThemeContext);
   /*
@@ -64,16 +64,19 @@ const AllTheBooks = ({ searchQuery }) => {
   );
 
   return (
-    <div className={theme === "dark" ? "bg-dark text-light" : "bg-light text-dark"}>
-    <Container className="mt-4">
-      <Row>
-        {filteredBooks.map((book) => (
-          <Col key={book.id} md={3}>
-            <SingleBook book={book} />
-          </Col>
-        ))}
-      </Row>
-    </Container>
+    <div className={theme === "dark" ? "bg-dark text-light" : "text-dark"}>
+      <Container className="mt-4">
+        <Row>
+          {filteredBooks.map((book) => (
+            <Col key={book.id} md={3}>
+              <SingleBook
+                book={book}
+                selectedAsin={selectedAsin}
+                setSelectedAsin={setSelectedAsin} />
+            </Col>
+          ))}
+        </Row>
+      </Container>
     </div>
   );
 };

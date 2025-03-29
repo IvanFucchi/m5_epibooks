@@ -8,6 +8,8 @@ const CommentArea = ({ asin }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
+  console.log("asin ricevuto:", asin)
+
   const fetchComments = async () => {
     setLoading(true);
     setError(false);

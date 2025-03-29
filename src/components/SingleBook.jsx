@@ -1,21 +1,22 @@
 import { Card } from "react-bootstrap";
-import { useContext, useState } from "react";
-import CommentArea from "../components/CommentArea";
+import { useContext } from "react";
 import ThemeContext from "../ThemeContext";
 
-const SingleBook = ({ book }) => {
-    const [selected, setSelected] = useState(false)
-
+const SingleBook = ({ book, selectedAsin, setSelectedAsin }) => {
+    console.log("PROPS in SingleBook:", { selectedAsin, setSelectedAsin });
     const { theme } = useContext(ThemeContext);
+    const isSelected = selectedAsin === book.asin;
+
 
     const handleClick = () => {
-        setSelected(!selected);
+        console.log("Libro cliccato:", book.asin);
+        setSelectedAsin(isSelected ? null : book.asin);
     };
 
     return (
         <>
             <Card
-                className={`mb-4 shadow-sm ${selected ? "border border-danger border-3" : ""} , ${theme === "dark" ? "bg-dark text-light" : "bg-light text-dark"} `}
+                className={`mb-4 shadow-sm ${isSelected ? "border border-danger border-3" : ""} , ${theme === "dark" ? "bg-dark text-light" : "bg-light text-dark"} `}
                 style={{ cursor: "pointer " }}
                 onClick={handleClick}
             >
@@ -25,7 +26,9 @@ const SingleBook = ({ book }) => {
                 </Card.Body>
             </Card>
 
-            {selected && <CommentArea asin={book.asin} />}
+            
+            {/* {selected && <CommentArea asin={book.asin} />} */}
+            
         </>
     );
 };
