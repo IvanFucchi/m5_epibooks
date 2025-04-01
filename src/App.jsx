@@ -19,7 +19,7 @@ function App() {
       <BrowserRouter>
         <MyNav searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home theme={theme} searchQuery={searchQuery}/>} />
           <Route path="/gigio" element={<Gigio />} />
           <Route path="/*" element={<NotFound />} />
         </Routes>

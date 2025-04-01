@@ -22,7 +22,7 @@ const SingleBook = ({ book, selectedAsin, setSelectedAsin }) => {
             >
                 <Card.Img variant="top" src={book.img} />
                 <Button>
-                    
+                   
                 </Button>
                 <Card.Body style={{ minHeight: "80px" }}>
                     <Card.Title className="ellipsis-multiline">

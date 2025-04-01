@@ -3,9 +3,7 @@ import Welcome from "../components/Welcome";
 import LatestRelease from "../components/LatestRelease";
 import CommentArea from "../components/CommentArea";
 
-const Home = () => {
-  const [searchQuery, setSearchQuery] = useState("");
-  const [theme, setTheme] = useState("light");
+const Home = ({theme, searchQuery}) => {
   const [selectedAsin, setSelectedAsin] = useState(null);
 
   return (
