@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+
+.ellipsis-multiline {
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* numero massimo di righe */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.text-truncate {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { useContext } from "react";
 import ThemeContext from "../ThemeContext";
 import "bootstrap-icons/font/bootstrap-icons.css";
+import { Link } from "react-router-dom";
 
 
 
@@ -23,9 +24,9 @@ const MyNav = ({ searchQuery, setSearchQuery}) => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto">
-                        <Nav.Link href="#">Home</Nav.Link>
-                        <Nav.Link href="#">About</Nav.Link>
-                        <Nav.Link href="#">Browse</Nav.Link>
+                        <Link to="/" className="nav-link">Home</Link>
+                        <Link to="/gigio" className="nav-link">Gigio</Link>
+                        <Link to="/lidarno" className="nav-link">Lidarno</Link>
                     </Nav>
                     <Form className="d-flex">
                         <Form.Control

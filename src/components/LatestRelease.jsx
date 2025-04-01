@@ -1,13 +1,13 @@
 import { Container, Row, Col, Form } from "react-bootstrap";
 import { useEffect } from "react";
 import booksData from "../data/books.json";
-import SingleBook from "../components/SingleBook";
+import SingleBook from "./SingleBook";
 import { v4 as uuidv4 } from "uuid";
 import { useContext } from "react";
 import ThemeContext from "../ThemeContext";
 
 
-const AllTheBooks = ({ searchQuery, selectedAsin, setSelectedAsin }) => {
+const LatestRelease = ({ searchQuery, selectedAsin, setSelectedAsin }) => {
 
   const { theme } = useContext(ThemeContext);
   /*
@@ -68,7 +68,7 @@ const AllTheBooks = ({ searchQuery, selectedAsin, setSelectedAsin }) => {
       <Container className="mt-4">
         <Row>
           {filteredBooks.map((book) => (
-            <Col key={book.id} md={3}>
+            <Col key={book.id} md={3} className="d-flex">
               <SingleBook
                 book={book}
                 selectedAsin={selectedAsin}
@@ -81,4 +81,4 @@ const AllTheBooks = ({ searchQuery, selectedAsin, setSelectedAsin }) => {
   );
 };
 
-export default AllTheBooks;
+export default LatestRelease;

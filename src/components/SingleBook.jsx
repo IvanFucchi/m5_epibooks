@@ -1,4 +1,4 @@
-import { Card } from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
 import { useContext } from "react";
 import ThemeContext from "../ThemeContext";
 
@@ -16,19 +16,24 @@ const SingleBook = ({ book, selectedAsin, setSelectedAsin }) => {
     return (
         <>
             <Card
-                className={`mb-4 shadow-sm ${isSelected ? "border border-danger border-3" : ""} , ${theme === "dark" ? "bg-dark text-light" : "bg-light text-dark"} `}
+                className={`h-100 mb-4 shadow-sm ${isSelected ? "border border-danger border-3" : ""} , ${theme === "dark" ? "bg-dark text-light" : "bg-light text-dark"} `}
                 style={{ cursor: "pointer " }}
                 onClick={handleClick}
             >
                 <Card.Img variant="top" src={book.img} />
-                <Card.Body>
-                    <Card.Title>{book.title}</Card.Title>
+                <Button>
+                    
+                </Button>
+                <Card.Body style={{ minHeight: "80px" }}>
+                    <Card.Title className="ellipsis-multiline">
+                        {book.title}
+                    </Card.Title>
                 </Card.Body>
             </Card>
 
-            
+
             {/* {selected && <CommentArea asin={book.asin} />} */}
-            
+
         </>
     );
 };

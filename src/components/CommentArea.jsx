@@ -32,6 +32,7 @@ const CommentArea = ({ asin }) => {
     } catch (err) {
       setError(true);
     } finally {
+      await new Promise((res) => setTimeout(res,600));
       setLoading(false);
     }
   };
