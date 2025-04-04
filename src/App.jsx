@@ -9,6 +9,9 @@ import Gigio from "./pages/Gigio"
 import Home from "./pages/Home"
 import MyNav from "./components/MyNav";
 import MyFooter from "./components/MyFooter";
+import SingleBook from "./components/SingleBook";
+import BookDetails from "./components/BookDetails";
+import Book from "./pages/Book";
 
 function App() {
   const [theme, setTheme] = useState("light");
@@ -21,6 +24,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home theme={theme} searchQuery={searchQuery}/>} />
           <Route path="/gigio" element={<Gigio />} />
+          <Route path="/books/:id" element={<Book/>} />
           <Route path="/*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
