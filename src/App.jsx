@@ -5,7 +5,7 @@ import "./themeStyles.css"
 import "bootstrap-icons/font/bootstrap-icons.css";
 import NotFound from "./components/NotFound";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Gigio from "./pages/Gigio"
+import About from "./pages/About"
 import Home from "./pages/Home"
 import MyNav from "./components/MyNav";
 import MyFooter from "./components/MyFooter";
@@ -23,7 +23,7 @@ function App() {
         <MyNav searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
         <Routes>
           <Route path="/" element={<Home theme={theme} searchQuery={searchQuery}/>} />
-          <Route path="/gigio" element={<Gigio />} />
+          <Route path="/about" element={<About />} />
           <Route path="/books/:id" element={<Book/>} />
           <Route path="/*" element={<NotFound />} />
         </Routes>

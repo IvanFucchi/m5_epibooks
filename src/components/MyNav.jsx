@@ -25,8 +25,8 @@ const MyNav = ({ searchQuery, setSearchQuery}) => {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto">
                         <Link to="/" className="nav-link">Home</Link>
-                        <Link to="/gigio" className="nav-link">Gigio</Link>
-                        <Link to="/lidarno" className="nav-link">Lidarno</Link>
+                        <Link to="/gigio" className="nav-link">About</Link>
+                        <Link to="/lidarno" className="nav-link">Browse</Link>
                     </Nav>
                     <Form className="d-flex">
                         <Form.Control
