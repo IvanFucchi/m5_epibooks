@@ -1,16 +1,13 @@
 
-import React from 'react';
-// import { render, screen } from './test-utils';
-import App from './App';
+import { render, screen } from "@testing-library/react";
+import { MemoryRouter } from "react-router-dom";
+import App from "./App";
 
+test("1. Verifica che il componente Welcome venga montato correttamente", () => {
+  render(
+      <App />
+  );
 
-describe('EpiBooks App', () => {
-  test('1. Mostra il componente Welcome correttamente', () => {
-    render(<App />);
-    // const welcomeText = screen.getByText(/incredible/i);
-    // expect(welcomeText).toBeInTheDocument();
-    expect("pippo").toBe("pippo")
-    
-  });
-
+  const welcomeEl = screen.getByTestId("welcome-text");
+  expect(welcomeEl).toBeInTheDocument();
 });
