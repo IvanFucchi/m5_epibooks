@@ -8,7 +8,7 @@ const CommentArea = ({ asin }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
-  console.log("asin ricevuto:", asin)
+  // console.log("asin ricevuto:", asin)
 
   const fetchComments = async () => {
     setLoading(true);
@@ -19,7 +19,7 @@ const CommentArea = ({ asin }) => {
         {
           headers: {
             Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2JjZDk4NmU3MDMzNzAwMTUzMTZkZDQiLCJpYXQiOjE3NDI2NTk1NDUsImV4cCI6MTc0Mzg2OTE0NX0.P4cT4uLB46FY6HM94IdP_TZgMOdJGyT_Vwp0Nk-UT3U",
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2JjZDk4NmU3MDMzNzAwMTUzMTZkZDQiLCJpYXQiOjE3NDM5NzY2NDcsImV4cCI6MTc0NTE4NjI0N30.94bAa_zk_TJAxF4tFtCrGzJDaEXIoF1bdNCiyr28aO8",
           },
         }
       );
@@ -42,7 +42,9 @@ const CommentArea = ({ asin }) => {
   }, [asin]);
 
   return (
-    <div className="mt-3">
+    <div 
+      data-testid="comment-area"
+      className="mt-3">
       {loading && <Spinner animation="border" variant="info" />}
       {error && <Alert variant="danger">Errore nel caricamento commenti</Alert>}
       <AddComment asin={asin} onCommentAdded={fetchComments} />

@@ -4,19 +4,20 @@ import ThemeContext from "../ThemeContext";
 import { Link } from "react-router-dom";
 
 const SingleBook = ({ book, selectedAsin, setSelectedAsin }) => {
-  console.log("PROPS in SingleBook:", { selectedAsin, setSelectedAsin });
+  // console.log("PROPS in SingleBook:", { selectedAsin, setSelectedAsin });
   const { theme } = useContext(ThemeContext);
   const isSelected = selectedAsin === book.asin;
 
 
   const handleClick = () => {
-    console.log("Libro cliccato:", book.asin);
+    // console.log("Libro cliccato:", book.asin);
     setSelectedAsin(isSelected ? null : book.asin);
   };
 
   return (
     <>
       <Card
+        data-testid={`boo-card`}
         className={`h-100 mb-4 shadow-sm ${isSelected ? "border border-danger border-3" : ""} , ${theme === "dark" ? "bg-dark text-light" : "bg-light text-dark"} `}
       >
         <Card.Img variant="top"

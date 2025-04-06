@@ -52,9 +52,9 @@ const LatestRelease = ({ searchQuery, selectedAsin, setSelectedAsin }) => {
         index !== self.findIndex((b) => b.id === book.id)
     );
     if (duplicates.length > 0) {
-      console.warn("Attenzione: duplicati trovati!", duplicates);
+      // console.warn("Attenzione: duplicati trovati!", duplicates);
     } else {
-      console.log("Nessun duplicato trovato! ✅");
+      // console.log("Nessun duplicato trovato! ✅");
     }
   }, [allBooks]);
 

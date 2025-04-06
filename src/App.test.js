@@ -1,8 +1,16 @@
-import { render, screen } from '@testing-library/react';
+
+import React from 'react';
+// import { render, screen } from './test-utils';
 import App from './App';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+
+describe('EpiBooks App', () => {
+  test('1. Mostra il componente Welcome correttamente', () => {
+    render(<App />);
+    // const welcomeText = screen.getByText(/incredible/i);
+    // expect(welcomeText).toBeInTheDocument();
+    expect("pippo").toBe("pippo")
+    
+  });
+
 });

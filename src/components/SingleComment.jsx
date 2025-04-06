@@ -5,7 +5,7 @@ const SingleComment = ({ comment, onUpdateNeeded }) => {
 
 const [editing, setEditing] = useState(false);
 
-  console.log("Rendering SingleComment editing:");
+  // console.log("Rendering SingleComment editing:");
 
   const [newComment, setNewComment] = useState(comment.comment);
   const [newRate, setNewRate] = useState(comment.rate);
@@ -25,7 +25,7 @@ const [editing, setEditing] = useState(false);
           method: "PUT",
           headers: {
             Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2JjZDk4NmU3MDMzNzAwMTUzMTZkZDQiLCJpYXQiOjE3NDI2NTk1NDUsImV4cCI6MTc0Mzg2OTE0NX0.P4cT4uLB46FY6HM94IdP_TZgMOdJGyT_Vwp0Nk-UT3U",
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2JjZDk4NmU3MDMzNzAwMTUzMTZkZDQiLCJpYXQiOjE3NDM5NzY2NDcsImV4cCI6MTc0NTE4NjI0N30.94bAa_zk_TJAxF4tFtCrGzJDaEXIoF1bdNCiyr28aO8",
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
@@ -64,7 +64,7 @@ const [editing, setEditing] = useState(false);
           method: "DELETE",
           headers: {
             Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2JjZDk4NmU3MDMzNzAwMTUzMTZkZDQiLCJpYXQiOjE3NDI2NTk1NDUsImV4cCI6MTc0Mzg2OTE0NX0.P4cT4uLB46FY6HM94IdP_TZgMOdJGyT_Vwp0Nk-UT3U",
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2JjZDk4NmU3MDMzNzAwMTUzMTZkZDQiLCJpYXQiOjE3NDM5NzY2NDcsImV4cCI6MTc0NTE4NjI0N30.94bAa_zk_TJAxF4tFtCrGzJDaEXIoF1bdNCiyr28aO8",
           },
         }
       );

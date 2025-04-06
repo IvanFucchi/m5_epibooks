@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 const MyNav = ({ searchQuery, setSearchQuery}) => {
 
     const { theme, setTheme } = useContext(ThemeContext);
-    console.log("Tema attivo nella navbar:", theme);
+    // console.log("Tema attivo nella navbar:", theme);
 
     return (
         <Navbar

@@ -9,8 +9,6 @@ import About from "./pages/About"
 import Home from "./pages/Home"
 import MyNav from "./components/MyNav";
 import MyFooter from "./components/MyFooter";
-import SingleBook from "./components/SingleBook";
-import BookDetails from "./components/BookDetails";
 import Book from "./pages/Book";
 
 function App() {
