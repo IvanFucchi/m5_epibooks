@@ -8,10 +8,8 @@ import Home from './pages/Home';
 import booksData from './data/books.json';
 import ThemeContext from './ThemeContext';
 
-// Mock della funzione fetch globale per i test dei commenti
 global.fetch = jest.fn();
 
-// Funzione helper per simulare una risposta fetch di successo
 function mockFetchSuccess(data) {
   return Promise.resolve({
     ok: true,
@@ -20,7 +18,6 @@ function mockFetchSuccess(data) {
 }
 
 beforeEach(() => {
-  // Reset del mock di fetch prima di ogni test
   fetch.mockClear();
 });
 
