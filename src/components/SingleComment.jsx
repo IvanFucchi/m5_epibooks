@@ -81,7 +81,9 @@ const [editing, setEditing] = useState(false);
   };
 
   return (
-    <ListGroup.Item className="d-flex justify-content-between align-items-center">
+    <ListGroup.Item 
+    data-testid="single-comment"
+    className="d-flex justify-content-between align-items-center">
       {editing ? (
         <div>
           <Form.Control

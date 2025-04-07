@@ -25,6 +25,7 @@ const CommentArea = ({ asin }) => {
       );
       if (response.ok) {
         const data = await response.json();
+        console.log("Commenti ricevuti:", data);
         setComments(data);
       } else {
         setError(true);
@@ -32,7 +33,7 @@ const CommentArea = ({ asin }) => {
     } catch (err) {
       setError(true);
     } finally {
-      await new Promise((res) => setTimeout(res,600));
+      await new Promise((res) => setTimeout(res,400));
       setLoading(false);
     }
   };
