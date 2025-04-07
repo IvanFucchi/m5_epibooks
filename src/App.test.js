@@ -1,10 +1,28 @@
+import React from 'react';
+import { render, screen, waitFor, fireEvent } from '@testing-library/react';
+import { act } from 'react-dom/test-utils';
+import userEvent from '@testing-library/user-event';
+import { MemoryRouter } from 'react-router-dom';
+import App from './App';
+import Home from './pages/Home';
+import booksData from './data/books.json';
+import ThemeContext from './ThemeContext';
 
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import { MemoryRouter } from "react-router-dom";
-import App from "./App";
-import Home from "./pages/Home";
-import booksData from "./data/books.json";
+// Mock della funzione fetch globale per i test dei commenti
+global.fetch = jest.fn();
+
+// Funzione helper per simulare una risposta fetch di successo
+function mockFetchSuccess(data) {
+  return Promise.resolve({
+    ok: true,
+    json: () => Promise.resolve(data)
+  });
+}
+
+beforeEach(() => {
+  // Reset del mock di fetch prima di ogni test
+  fetch.mockClear();
+});
 
 test("1. Verifica che il componente Welcome venga montato correttamente", () => {
   render(
@@ -39,8 +57,7 @@ test("3. Verifica che il componente CommentArea venga renderizzato correttamente
     </MemoryRouter>
   );
   const commentArea = screen.getByTestId("comment-area");
-expect(commentArea).toBeInTheDocument();
-
+  expect(commentArea).toBeInTheDocument();
 });
 
 test("4. Filtra i libri in base all'input di ricerca nella barra di ricerca", async () => {
@@ -80,8 +97,7 @@ test("5. Verifica che cliccando sul libro il bordo camboi colore", () => {
   const cards = screen.getAllByTestId("book-card");
   const firstCard = cards[0];
 
-expect(firstCard.className).toMatch(/border/);
-
+  expect(firstCard.className).toMatch(/border/);
 });
 
 test("6. Solo un libro alla volta può avere il bordo selezionato", () => {
@@ -110,7 +126,6 @@ test("6. Solo un libro alla volta può avere il bordo selezionato", () => {
   expect(cards[0].className).not.toMatch(/border/);
 });
 
-
 test("7. Nessun commento mostrato se nessun libro è selezionato", () => {
   render(
     <MemoryRouter>
@@ -123,6 +138,41 @@ test("7. Nessun commento mostrato se nessun libro è selezionato", () => {
 });
 
 
+test("8. Mostra i commenti quando si seleziona un libro che ha commenti", async () => {
+  
+  const mockComments = [
+    { _id: '1', author: 'Mario', comment: 'Ottimo libro!' },
+    { _id: '2', author: 'Giulia', comment: 'Uno dei miei preferiti.' }
+  ];
 
+  fetch.mockImplementation((url) => {
+    if (url.includes('/comments')) {
+      return mockFetchSuccess(mockComments);
+    }
+    return mockFetchSuccess([]);
+  });
 
+  jest.useFakeTimers();
 
+  render(
+    <MemoryRouter>
+      <Home theme="light" searchQuery="" />
+    </MemoryRouter>
+  );
+
+  const cards = screen.getAllByTestId("book-card");
+  fireEvent.click(cards[0]);
+
+  expect(fetch).toHaveBeenCalled();
+  
+  await act(async () => {
+    jest.advanceTimersByTime(400);
+  });
+
+  await waitFor(() => {
+    const commentElements = screen.getAllByTestId("single-comment");
+    expect(commentElements.length).toBe(2);
+  });
+
+  jest.useRealTimers();
+});
